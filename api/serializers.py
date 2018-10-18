@@ -21,11 +21,12 @@ class ItemListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
         fields=['name','description','added_by','detail','added_by','favorites']  
+
     def get_favorites(self, obj):
         return obj.favoriteitem_set.count()
-        
+
 class ItemDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
-        fields = ['__all__']            
+        fields = '__all__'         
 
